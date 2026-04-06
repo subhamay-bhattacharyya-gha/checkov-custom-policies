@@ -28,7 +28,7 @@ jobs:
           cache: pip
 
       - name: Install dependencies
-        run: pip install checkov pytest pytest-cov
+        run: pip install -r requirements.txt
 
       - name: Run tests
         run: pytest tests/ -v --cov=terraform --cov-report=term-missing --cov-fail-under=80
