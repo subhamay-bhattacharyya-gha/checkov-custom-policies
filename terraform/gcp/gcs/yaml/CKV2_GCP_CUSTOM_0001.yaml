@@ -1,0 +1,16 @@
+metadata:
+  name: "Ensure GCS buckets have uniform bucket-level access enabled"
+  id: "CKV2_GCP_CUSTOM_0001"
+  category: "GENERAL_SECURITY"
+  severity: "MEDIUM"
+
+scope:
+  provider: terraform
+
+definition:
+  and:
+    - cond_type: attribute
+      resource_types:
+        - google_storage_bucket
+      attribute: uniform_bucket_level_access
+      operator: is_true

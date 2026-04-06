@@ -1,0 +1,17 @@
+metadata:
+  name: "Ensure GCS buckets enforce public access prevention"
+  id: "CKV2_GCP_CUSTOM_0003"
+  category: "GENERAL_SECURITY"
+  severity: "HIGH"
+
+scope:
+  provider: terraform
+
+definition:
+  and:
+    - cond_type: attribute
+      resource_types:
+        - google_storage_bucket
+      attribute: public_access_prevention
+      operator: equals
+      value: "enforced"

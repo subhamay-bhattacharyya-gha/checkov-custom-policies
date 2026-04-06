@@ -1,0 +1,4 @@
+id,name,type,cloud,service,severity,category,file
+CKV2_TF_CUSTOM_0100,Ensure random_password resources enforce a minimum length of 16 characters,python,common,common,MEDIUM,GENERAL_SECURITY,terraform/common/python/CKV2_TF_CUSTOM_0100.py
+CKV2_TF_CUSTOM_0101,Ensure null_resource and terraform_data resources do not use local-exec provisioners,python,common,common,MEDIUM,GENERAL_SECURITY,terraform/common/python/CKV2_TF_CUSTOM_0101.py
+CKV2_TF_CUSTOM_0102,Ensure local_file resources use restrictive file permissions (0600 or stricter),python,common,common,MEDIUM,GENERAL_SECURITY,terraform/common/python/CKV2_TF_CUSTOM_0102.py

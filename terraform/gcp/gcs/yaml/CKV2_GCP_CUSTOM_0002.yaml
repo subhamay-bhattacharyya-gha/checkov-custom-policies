@@ -1,0 +1,16 @@
+metadata:
+  name: "Ensure GCS buckets have versioning enabled"
+  id: "CKV2_GCP_CUSTOM_0002"
+  category: "GENERAL_SECURITY"
+  severity: "LOW"
+
+scope:
+  provider: terraform
+
+definition:
+  and:
+    - cond_type: attribute
+      resource_types:
+        - google_storage_bucket
+      attribute: versioning.enabled
+      operator: is_true

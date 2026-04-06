@@ -1,0 +1,5 @@
+id,name,type,cloud,service,severity,category,file
+CKV2_GCP_CUSTOM_0001,Ensure GCS buckets have uniform bucket-level access enabled,yaml,gcp,gcs,MEDIUM,GENERAL_SECURITY,terraform/gcp/gcs/yaml/CKV2_GCP_CUSTOM_0001.yaml
+CKV2_GCP_CUSTOM_0002,Ensure GCS buckets have versioning enabled,yaml,gcp,gcs,LOW,GENERAL_SECURITY,terraform/gcp/gcs/yaml/CKV2_GCP_CUSTOM_0002.yaml
+CKV2_GCP_CUSTOM_0003,Ensure GCS buckets enforce public access prevention,yaml,gcp,gcs,HIGH,GENERAL_SECURITY,terraform/gcp/gcs/yaml/CKV2_GCP_CUSTOM_0003.yaml
+CKV2_GCP_CUSTOM_0004,Ensure GCS buckets are encrypted with a customer-managed encryption key (CMEK),yaml,gcp,gcs,HIGH,ENCRYPTION,terraform/gcp/gcs/yaml/CKV2_GCP_CUSTOM_0004.yaml

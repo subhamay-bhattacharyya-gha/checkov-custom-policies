@@ -1,0 +1,16 @@
+metadata:
+  name: "Ensure GCS buckets are encrypted with a customer-managed encryption key (CMEK)"
+  id: "CKV2_GCP_CUSTOM_0004"
+  category: "ENCRYPTION"
+  severity: "HIGH"
+
+scope:
+  provider: terraform
+
+definition:
+  and:
+    - cond_type: attribute
+      resource_types:
+        - google_storage_bucket
+      attribute: encryption.default_kms_key_name
+      operator: exists

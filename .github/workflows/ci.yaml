@@ -1,0 +1,61 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - "**"
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: write       # push tags and changelog commits (semantic-release)
+  issues: write         # open issues on release failure
+  pull-requests: write  # comment on PRs with release info
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install checkov pytest pytest-cov
+
+      - name: Run tests
+        run: pytest tests/ -v --cov=terraform --cov-report=term-missing --cov-fail-under=80
+
+  release:
+    name: Release
+    needs: test
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0        # semantic-release needs full history to compute the next version
+          persist-credentials: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: "22.14.0"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npx semantic-release

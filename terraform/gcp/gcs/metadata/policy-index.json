@@ -1,0 +1,42 @@
+[
+  {
+    "id": "CKV2_GCP_CUSTOM_0001",
+    "name": "Ensure GCS buckets have uniform bucket-level access enabled",
+    "type": "yaml",
+    "cloud": "gcp",
+    "service": "gcs",
+    "severity": "MEDIUM",
+    "category": "GENERAL_SECURITY",
+    "file": "terraform/gcp/gcs/yaml/CKV2_GCP_CUSTOM_0001.yaml"
+  },
+  {
+    "id": "CKV2_GCP_CUSTOM_0002",
+    "name": "Ensure GCS buckets have versioning enabled",
+    "type": "yaml",
+    "cloud": "gcp",
+    "service": "gcs",
+    "severity": "LOW",
+    "category": "GENERAL_SECURITY",
+    "file": "terraform/gcp/gcs/yaml/CKV2_GCP_CUSTOM_0002.yaml"
+  },
+  {
+    "id": "CKV2_GCP_CUSTOM_0003",
+    "name": "Ensure GCS buckets enforce public access prevention",
+    "type": "yaml",
+    "cloud": "gcp",
+    "service": "gcs",
+    "severity": "HIGH",
+    "category": "GENERAL_SECURITY",
+    "file": "terraform/gcp/gcs/yaml/CKV2_GCP_CUSTOM_0003.yaml"
+  },
+  {
+    "id": "CKV2_GCP_CUSTOM_0004",
+    "name": "Ensure GCS buckets are encrypted with a customer-managed encryption key (CMEK)",
+    "type": "yaml",
+    "cloud": "gcp",
+    "service": "gcs",
+    "severity": "HIGH",
+    "category": "ENCRYPTION",
+    "file": "terraform/gcp/gcs/yaml/CKV2_GCP_CUSTOM_0004.yaml"
+  }
+]
