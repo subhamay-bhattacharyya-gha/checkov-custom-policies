@@ -1,7 +1,7 @@
 {
-  "name": "github-action-template",
+  "name": "checkov-custom-policies",
   "version": "0.0.0",
-  "description": "A sample project using semantic release with custom plugins.",
+  "description": "Centralized library of reusable custom Checkov policies with metadata-driven dispatch for Terraform, GCP, AWS, and Azure.",
   "main": "index.js",
   "scripts": {
     "release": "semantic-release"
@@ -21,18 +21,23 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
-  "release": {
-    "extends": "./scripts/plugins/release.config.js"
-  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/subhamay-bhattacharyya-gha/github-action-template.git"
+    "url": "git+https://github.com/subhamay-bhattacharyya-gha/checkov-custom-policies.git"
   },
   "author": "Subhamay Bhattacharyya",
   "license": "MIT",
-  "keywords": [],
+  "keywords": [
+    "checkov",
+    "terraform",
+    "custom-policies",
+    "gcp",
+    "aws",
+    "azure",
+    "iac-security"
+  ],
   "bugs": {
-    "url": "https://github.com/subhamay-bhattacharyya-gha/github-action-template/issues"
+    "url": "https://github.com/subhamay-bhattacharyya-gha/checkov-custom-policies/issues"
   },
-  "homepage": "https://github.com/subhamay-bhattacharyya-gha/github-action-template#readme"
+  "homepage": "https://github.com/subhamay-bhattacharyya-gha/checkov-custom-policies#readme"
 }
