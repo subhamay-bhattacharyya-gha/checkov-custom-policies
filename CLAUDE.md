@@ -399,6 +399,7 @@ tests/terraform/gcp/cloudsql/
 ```python
 # tests/terraform/gcp/cloudsql/test_CKV2_GCP_CUSTOM_0100.py
 from pathlib import Path
+from checkov.runner_filter import RunnerFilter
 from checkov.terraform.runner import Runner
 from terraform.gcp.cloudsql.python.CKV2_GCP_CUSTOM_0100 import check
 
@@ -408,7 +409,7 @@ FIXTURES_DIR = Path(__file__).parent
 def test_pass():
     result = Runner().run(
         root_folder=str(FIXTURES_DIR / "pass"),
-        runner_filter_checks=[check.id],
+        runner_filter=RunnerFilter(checks=[check.id]),
     )
     assert len(result.passed_checks) >= 1
     assert len(result.failed_checks) == 0
@@ -417,7 +418,7 @@ def test_pass():
 def test_fail():
     result = Runner().run(
         root_folder=str(FIXTURES_DIR / "fail"),
-        runner_filter_checks=[check.id],
+        runner_filter=RunnerFilter(checks=[check.id]),
     )
     assert len(result.failed_checks) >= 1
     assert len(result.passed_checks) == 0
@@ -538,7 +539,7 @@ When a new cloud service is introduced for the first time:
 | `BaseResourceCheck` | Use for single-resource attribute checks |
 | `BaseGraphCheck` | Use for cross-resource relationship checks (e.g. a KMS key attached to a GCS bucket) |
 | `CheckResult.PASSED / FAILED / UNKNOWN` | Always use the enum — never raw strings or booleans |
-| `runner_filter_checks` | Pass `[check.id]` in tests to isolate the check under test |
+| `RunnerFilter(checks=[check.id])` | Pass via `runner_filter=` in tests to isolate the check under test |
 | `conf` dict values | HCL values are often list-wrapped — always unwrap with `[0]` defensively |
 | YAML rule DSL | Supports `and`, `or`, `not`, `attribute`, `connection` condition types |
 | Module-level singleton | `check = CKV2GcpCustom0100()` at module level is required for Checkov auto-registration |
